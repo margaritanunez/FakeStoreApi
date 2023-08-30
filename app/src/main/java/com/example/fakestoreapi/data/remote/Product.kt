@@ -1,6 +1,6 @@
 package com.example.fakestoreapi.data.remote
 
-data class Products(
+data class Product(
     val id: Int,
     val title: String,
     val price: Double,
