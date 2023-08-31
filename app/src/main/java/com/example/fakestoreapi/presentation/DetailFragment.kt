@@ -1,5 +1,7 @@
 package com.example.fakestoreapi.presentation
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -45,10 +47,31 @@ class DetailFragment : Fragment() {
                 binding.tvDetailDescription.text = it.description
                 binding.tvDetailPrice.text= it.price.toString()
                 binding.tvDetailname.text = it.title
+                val id= it.id
 
+            }
+            binding.btnEmail!!.setOnClickListener {
+                sendEmail(id)
             }
         }
     }
 
+    private fun sendEmail(id: Int) {
+        //mail cliente
+        val destinatario = getString(R.string.destinatario_msn)
+        val intentEmail = Intent(Intent.ACTION_SEND, Uri.parse(destinatario))
+        intentEmail.type = "plain/text"
+        //Donde llegan
+        intentEmail.putExtra(Intent.EXTRA_EMAIL,arrayOf(destinatario))
+        //Titulo Mail
+        intentEmail.putExtra(Intent.EXTRA_SUBJECT,getString(R.string.asunt,id))
+        //Body Mail
+        intentEmail.putExtra(Intent.EXTRA_TEXT,getString(R.string.body_msn,id))
+
+        startActivity(Intent.createChooser(intentEmail, "Consulta producto"))
+
     }
+
+}
+
 
