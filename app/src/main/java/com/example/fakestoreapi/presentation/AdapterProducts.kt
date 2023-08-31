@@ -3,8 +3,10 @@ package com.example.fakestoreapi.presentation
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.fakestoreapi.R
 import com.example.fakestoreapi.data.local.ProductEntity
 import com.example.fakestoreapi.databinding.ItemListBinding
 
@@ -39,6 +41,10 @@ class AdapterProducts: RecyclerView.Adapter<AdapterProducts.ItemListViewHolder>(
             val bundle = Bundle()
             productBinding.tvName.text = product.title
             productBinding.imgProduct.load(product.image)
+            productBinding.cvImageName.setOnClickListener {
+                bundle.putInt("id", product.id)
+                Navigation.findNavController(productBinding.root).navigate(R.id.action_listFragment_to_detailFragment, bundle)
+            }
 
         }
 
