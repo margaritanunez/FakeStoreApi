@@ -22,5 +22,7 @@ class ProductViewModel(application: Application) : AndroidViewModel(application)
 
     fun productLiveData()= repository.getProductEntity()
 
-    fun getAllProductos()= viewModelScope.launch { repository.ChargeAllProducts() }
+    fun getAllProductos()= viewModelScope.launch {
+        repository.ChargeAllProducts()
+    }
 }

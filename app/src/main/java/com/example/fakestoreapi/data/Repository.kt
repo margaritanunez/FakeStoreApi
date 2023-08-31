@@ -19,7 +19,7 @@ class Repository(private val productApi: ProductApi, private val productDao: Pro
                 val resp = response.body()
                 resp?.let {
                     val productosEntity = it.map { it.transformToEntity() }
-
+                    productDao.insertAllProducts(productosEntity)
                 }
             }else {
                 Log.e("repository", response.errorBody().toString())

@@ -13,12 +13,12 @@ class AdapterProducts: RecyclerView.Adapter<AdapterProducts.ItemListViewHolder>(
     lateinit var binding: ItemListBinding
     private val listProducts= mutableListOf<ProductEntity>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterProducts.ItemListViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemListViewHolder {
         binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemListViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: AdapterProducts.ItemListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemListViewHolder, position: Int) {
         val product= listProducts[position]
         holder.bind(product)
     }
@@ -39,6 +39,7 @@ class AdapterProducts: RecyclerView.Adapter<AdapterProducts.ItemListViewHolder>(
             val bundle = Bundle()
             productBinding.tvName.text = product.title
             productBinding.imgProduct.load(product.image)
+
         }
 
     }
