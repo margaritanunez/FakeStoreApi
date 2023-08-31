@@ -14,7 +14,7 @@ class Repository(private val productApi: ProductApi, private val productDao: Pro
     //Listado de todos los productos
     fun getProductEntity(): LiveData<List<ProductEntity>> = productDao.getAllProducts()
 
-    suspend fun ChargeAllProducts() {
+    suspend fun chargeAllProducts() {
         try {
             val response = productApi.getDataProduct()
             if (response.isSuccessful) {
