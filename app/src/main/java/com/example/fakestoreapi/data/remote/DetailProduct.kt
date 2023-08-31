@@ -6,6 +6,7 @@ data class DetailProduct(
     val price: Double,
     val description: String,
     val category: String,
+    val image: String,
     val rating: RatingDetail
 )
 
