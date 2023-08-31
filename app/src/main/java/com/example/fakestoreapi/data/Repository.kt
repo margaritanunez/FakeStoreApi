@@ -31,16 +31,6 @@ class Repository(private val productApi: ProductApi, private val productDao: Pro
 
         }
     }
-    private fun Product.transformToEntity(): ProductEntity = ProductEntity(
-        this.id,
-        this.title,
-        this.price,
-        this.description,
-        this.category,
-        this.image,
-        this.rating.rate,
-        this.rating.count
-    )
 
     // Detalle de producto de acuerdo al ID seleccionado
 
@@ -61,16 +51,5 @@ class Repository(private val productApi: ProductApi, private val productDao: Pro
             Log.e("catch", "")
         }
     }
-
-    private fun DetailProduct.transformToDetailEntity(): DetailProductEntity = DetailProductEntity(
-        this.id,
-        this.title,
-        this.price,
-        this.description,
-        this.category,
-        this.image,
-        this.rating.rate,
-        this.rating.count
-    )
 }
 
