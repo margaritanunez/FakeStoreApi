@@ -68,7 +68,7 @@ class DetailFragment : Fragment() {
         //Body Mail
         intentEmail.putExtra(Intent.EXTRA_TEXT,getString(R.string.body_msn,id))
 
-        startActivity(Intent.createChooser(intentEmail, "Consulta producto"))
+        startActivity(Intent.createChooser(intentEmail, "Consulta de producto"))
 
     }
 
